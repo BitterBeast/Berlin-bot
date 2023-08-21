@@ -37,7 +37,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster00")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Ajax_file')
 
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', -1001970615714))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001970615714'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'ZIB_BOTS')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
