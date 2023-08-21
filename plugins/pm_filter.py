@@ -730,11 +730,6 @@ async def auto_filter(client, msg, spoll=False):
 
 
 async def advantage_spell_chok(client, msg, search, reply):
-    await client.send_message(
-        chat_id=LOG_CHANNEL,
-        text=f"""⚠️ ⚠️ 𝗜𝗻𝗱𝗲𝘅 𝗔𝗹𝗲𝗿𝘁 ⚠️ ⚠️
-𝗡𝗢 𝗙𝗜𝗟𝗘 𝗙𝗢𝗨𝗡𝗗 𝗙𝗢𝗥 {search}"""
-    )
     k = await msg.reply_text(
         text=f"""Hey {msg.from_user.mention}, 
 Your requested movie {search} spelling is incrroct or check this movie released in ott 🥺 
@@ -742,6 +737,11 @@ Click the google button and check spelling""",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton('🔍 𝗚𝗼𝗼𝗴𝗹𝗲 🔎', url=f'https://www.google.com/search?q={reply}')
         ]])
+    )
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text=f"""⚠️ ⚠️ 𝗜𝗻𝗱𝗲𝘅 𝗔𝗹𝗲𝗿𝘁 ⚠️ ⚠️
+𝗡𝗢 𝗙𝗜𝗟𝗘 𝗙𝗢𝗨𝗡𝗗 𝗙𝗢𝗥 {search}"""
     )
     await asyncio.sleep(60)
     await k.delete()
