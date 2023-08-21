@@ -22,13 +22,13 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-            InlineKeyboardButton('➕ 𝗔𝗱𝗱 𝗠𝗲 𝗧𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('𝗨𝗽𝗱𝗮𝘁𝗲𝘀', url='https://t.me/Zib_bots'),
-            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁', url='https://t.me/disccussatZIB')
+            InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/Zib_bots'),
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/disccussatZIB')
             ],[
-            InlineKeyboardButton('• 𝗛𝗲𝗹𝗽', callback_data='help'),
-            InlineKeyboardButton('• 𝗔𝗯𝗼𝘂𝘁', callback_data='about')
+            InlineKeyboardButton('• 𝙷𝙴𝙻𝙿', callback_data='help'),
+            InlineKeyboardButton('• 𝙰𝙱𝙾𝚄𝚃', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup, disable_web_page_preview=True)
@@ -43,13 +43,13 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ 𝗔𝗱𝗱 𝗠𝗲 𝗧𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('𝗨𝗽𝗱𝗮𝘁𝗲𝘀', url='https://t.me/Zib_bots'),
-            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁', url='https://t.me/disccussatZIB')
+            InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/Zib_bots'),
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/disccussatZIB')
             ],[
-            InlineKeyboardButton('• 𝗛𝗲𝗹𝗽', callback_data='help'),
-            InlineKeyboardButton('• 𝗔𝗯𝗼𝘂𝘁', callback_data='about')
+            InlineKeyboardButton('• 𝙷𝙴𝙻𝙿', callback_data='help'),
+            InlineKeyboardButton('• 𝙰𝙱𝙾𝚄𝚃', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -89,13 +89,13 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ 𝗔𝗱𝗱 𝗠𝗲 𝗧𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('𝗨𝗽𝗱𝗮𝘁𝗲𝘀', url='https://t.me/Zib_bots'),
-            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁', url='https://t.me/disccussatZIB')
+            InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/Zib_bots'),
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/disccussatZIB')
             ],[
-            InlineKeyboardButton('• 𝗛𝗲𝗹𝗽', callback_data='help'),
-            InlineKeyboardButton('• 𝗔𝗯𝗼𝘂𝘁', callback_data='about')
+            InlineKeyboardButton('• 𝙷𝙴𝙻𝙿', callback_data='help'),
+            InlineKeyboardButton('• 𝙰𝙱𝙾𝚄𝚃', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -407,61 +407,61 @@ async def settings(client, message):
         buttons = [
             [
                 InlineKeyboardButton(
-                    'Filter Button',
+                    '𝙵𝙸𝙻𝚃𝙴𝚁 𝙱𝚄𝚃𝚃𝙾𝙽',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Single' if settings["button"] else 'Double',
+                    '𝚂𝙸𝙽𝙶𝙻𝙴' if settings["button"] else '𝙳𝙾𝚄𝙱𝙻𝙴',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Bot PM',
+                    '𝙵𝙸𝙻𝙴 𝚂𝙴𝙽𝙳',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["botpm"] else '❌ No',
+                    '𝙱𝙾𝚃 𝙿𝙼' if settings["botpm"] else '𝙰𝚄𝚃𝙾',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'File Secure',
+                    '𝙵𝙸𝙻𝙴 𝚂𝙴𝙲𝚄𝚁𝙴',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["file_secure"] else '❌ No',
+                    '𝙾𝙽' if settings["file_secure"] else '𝙾𝙵𝙵',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'IMDB',
+                    '𝙸𝙼𝙳𝙱',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["imdb"] else '❌ No',
+                    '𝙾𝙽' if settings["imdb"] else '𝙾𝙵𝙵',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Spell Check',
+                    '𝚂𝙿𝙴𝙻𝙻 𝙲𝙷𝙴𝙲𝙺',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["spell_check"] else '❌ No',
+                    '𝙾𝙽' if settings["spell_check"] else '𝙾𝙵𝙵',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Welcome',
+                    '𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝙼𝚂𝙶',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["welcome"] else '❌ No',
+                    '𝙾𝙽' if settings["welcome"] else '𝙾𝙵𝙵',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
@@ -470,7 +470,7 @@ async def settings(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await message.reply_text(
-            text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
+            text=f"<b>𝙲𝙷𝙰𝙽𝙶𝙴 𝚈𝙾𝚄𝚁 𝚂𝙴𝚃𝚃𝙸𝙽𝚂 𝙾𝙵 𝙱𝙾𝚃 𝙵𝙾𝚁 {title} 𝙰𝚂 𝚈𝙾𝚄𝚁 𝚆𝙸𝚂𝙷⚙</b>",
             reply_markup=reply_markup,
             disable_web_page_preview=True,
             parse_mode=enums.ParseMode.HTML,
