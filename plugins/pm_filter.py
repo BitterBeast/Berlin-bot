@@ -41,14 +41,6 @@ async def give_filter(client, message):
 async def pm_filter(client, message):
     await auto_filter(client, message)
 
-@Client.on_message(filters.group & filters.incoming)
-async def auto_del(client, message, msg)
-    settings = await get_settings(message.chat.id)
-    try:
-        if settings['auto_del']:
-            await asyncio.sleep(600)
-            await message.delete()
-
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
