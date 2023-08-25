@@ -34,11 +34,28 @@ SPELL_MODE = "True"
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
-        await auto_filter(client, message)
+        settings = await get_settings(message.chat.id)
+                try:
+                    if settings['auto_filter']:
+                        await auto_filter(client, message)
+                except KeyError:
+                    grpid = await active_connection(str(message.from_user.id))
+                    await save_group_settings(grpid, 'auto_filter', True)
+                    settings = await get_settings(message.chat.id)
+                    if settings['auto_filter']:
+                        await auto_filter(client, message)
 
 @Client.on_message(filters.private & filters.text)
 async def pm_filter(client, message):
     await auto_filter(client, message)
+
+@Client.on_message(filters.group & filters.incoming)
+async def auto_del(client, message, msg)
+    settings = await get_settings(message.chat.id)
+    try:
+        if settings['auto_del']:
+            await asyncio.sleep(600)
+            await message.delete()
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
