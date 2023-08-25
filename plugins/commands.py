@@ -465,6 +465,12 @@ async def settings(client, message):
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
+            [
+                    InlineKeyboardButton('Aᴜᴛᴏ-Fɪʟᴛᴇʀ',
+                                         callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ Oɴ' if settings["auto_filter"] else '✘ Oғғ',
+                                         callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{str(grp_id)}')
+            ]
         ]
 
         reply_markup = InlineKeyboardMarkup(buttons)
