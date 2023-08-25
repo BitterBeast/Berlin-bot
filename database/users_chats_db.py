@@ -114,7 +114,8 @@ class Database:
             'imdb': IMDB,
             'spell_check': SPELL_CHECK_REPLY,
             'welcome': MELCOW_NEW_USERS,
-            'template': IMDB_TEMPLATE
+            'template': IMDB_TEMPLATE,
+            'auto_filter', 'MAIN_FUNC'
         }
         chat = await self.grp.find_one({'id':int(id)})
         if chat:
