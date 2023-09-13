@@ -715,17 +715,25 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"Here is what i found for your query {search}"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+            k = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            await k.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            h = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            await h.delete()
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            l = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            await l.delete()
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        m = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(600)
+        await m.delete()
     if spoll:
         await msg.message.delete()
 
@@ -738,12 +746,6 @@ Click the google button and check spelling""",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton('🔍 𝗚𝗼𝗼𝗴𝗹𝗲 🔎', url=f'https://www.google.com/search?q={reply}')
         ]])
-    )
-    await client.send_message(
-        chat_id=LOG_CHANNEL,
-        text=f"""⚠️ ⚠️ 𝗜𝗻𝗱𝗲𝘅 𝗔𝗹𝗲𝗿𝘁 ⚠️ ⚠️
-𝗡𝗢 𝗙𝗜𝗟𝗘 𝗙𝗢𝗨𝗡𝗗 𝗙𝗢𝗥 {search}"""
-    )
     await asyncio.sleep(60)
     await k.delete()
     
@@ -764,31 +766,39 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            h = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            await asyncio.sleep(600)
+                            await h.delete()
                         else:
                             button = eval(btn)
-                            await client.send_message(
+                            l = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(600)
+                            await l.delete()
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        k = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(600)
+                        await k.delete()
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        m = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(600)
+                        await m.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
