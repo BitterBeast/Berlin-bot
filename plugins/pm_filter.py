@@ -746,6 +746,7 @@ Click the google button and check spelling""",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton('🔍 𝗚𝗼𝗼𝗴𝗹𝗲 🔎', url=f'https://www.google.com/search?q={reply}')
         ]])
+    )
     await asyncio.sleep(60)
     await k.delete()
     
