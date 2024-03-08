@@ -30,11 +30,14 @@ auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
+REQ_CHANNEL = environ.get("REQ_CHANNEL", "1002140302723")
+REQ_CHANNEL = int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL) else False
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://A1:A1@cluster0.z34eekf.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster00")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Ajax_file')
+JOIN_REQS_DB = environ.get('JOIN_REQS_DB', 'mongodb+srv://A1:A1@cluster0.z34eekf.mongodb.net/?retryWrites=true&w=majority')
 
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001970615714'))
