@@ -14,6 +14,7 @@ from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
 import time
+from database.join_reqs import JoinReqs as db2
 
 START_TIME = time.time()
 
