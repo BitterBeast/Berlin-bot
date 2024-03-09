@@ -11,6 +11,7 @@ from pyrogram.errors import ChatAdminRequired
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 START_TIME = time.time()
+UPTIME = get_time(time.time() - START_TIME)
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -149,7 +150,7 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    uptime = get_time(time.time() - START_TIME)
+    uptime = UPTIME
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free, uptime))
 
 
