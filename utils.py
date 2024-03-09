@@ -13,6 +13,9 @@ from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
+import time
+
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -448,12 +451,22 @@ def gfilterparser(text, keyword):
         
 
 def humanbytes(size):
-    if not size:
-        return ""
-    power = 2**10
-    n = 0
-    Dic_powerN = {0: ' ', 1: 'Ki', 2: 'Mi', 3: 'Gi', 4: 'Ti'}
-    while size > power:
-        size /= power
-        n += 1
-    return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+        if not size:
+            return ""
+        power = 2**10
+        n = 0
+        Dic_powerN = {0: ' ', 1: 'Ki', 2: 'Mi', 3: 'Gi', 4: 'Ti'}
+        while size > power:
+            size /= power
+            n += 1
+        return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+        
+def get_time(seconds):
+            periods = [('m', 2592000), ('d', 86400), ('h', 3600), ('m', 60), ('s', 1)]
+            result = ''
+            for period_name, period_seconds in periods:
+                if seconds >= period_seconds:
+                    period_value, seconds = divmod(seconds, period_seconds)
+                    result += f'{int(period_value)}{period_name}'
+            return result
+        

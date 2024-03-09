@@ -4,11 +4,13 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInv
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings
+from utils import get_size, temp, get_settings, get_time
 from Script import script
+import time
 from pyrogram.errors import ChatAdminRequired
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
+START_TIME = time.time()
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -147,6 +149,7 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
+    uptime = get_time(time.time() - START_TIME)
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
 
 
