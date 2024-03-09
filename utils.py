@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 
-
+START_TIME = time.time()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -469,4 +469,5 @@ def get_time(seconds):
                     period_value, seconds = divmod(seconds, period_seconds)
                     result += f'{int(period_value)}{period_name}'
             return result
+            uptime = time.time() - START_TIME
         
