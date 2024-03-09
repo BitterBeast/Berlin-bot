@@ -150,7 +150,7 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     uptime = get_time(time.time() - START_TIME)
-    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
+    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free, uptime))
 
 
 # a function for trespassing into others groups, Inspired by a Vazha
