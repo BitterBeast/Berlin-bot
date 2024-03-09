@@ -100,6 +100,7 @@ async def start(client, message):
     status = await ForceSub(client, message, file_id=file_id, mode=pre)
     if not status:
         return
+    data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
     except:
