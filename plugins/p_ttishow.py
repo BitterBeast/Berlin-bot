@@ -150,7 +150,7 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    uptime = get_time(uptime)
+    uptime = get_time(uptiime)
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free, uptime))
 
 
